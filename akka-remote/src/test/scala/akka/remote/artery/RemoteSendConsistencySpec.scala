@@ -34,6 +34,8 @@ class RemoteSendConsistencyWithThreeLanesSpec extends AbstractRemoteSendConsiste
   ConfigFactory.parseString("""
       akka.remote.artery.advanced.outbound-lanes = 3
       akka.remote.artery.advanced.inbound-lanes = 3
+      akka.remote.artery.log-sent-messages = on
+      akka.remote.artery.log-received-messages = on
     """).withFallback(RemoteSendConsistencySpec.config))
 
 abstract class AbstractRemoteSendConsistencySpec(config: Config) extends AkkaSpec(config) with ImplicitSender {
